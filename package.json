@@ -1,0 +1,14 @@
+{
+  "name": "httpbin.org",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "devDependencies": {
+    "cypress": "^8.6.0"
+  },
+  "scripts": {
+    "cy:open": "cypress open"
+  },
+  "author": "jjhelguero",
+  "license": "ISC"
+}
