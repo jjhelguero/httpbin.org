@@ -9,7 +9,8 @@
   },
   "scripts": {
     "cy:open": "cypress open",
-    "cy:run": "cypress run"
+    "cy:run": "cypress run",
+    "cy:ci": "npx cypress run --record --key 8fdb7174-a369-46d7-a448-852bba4eda4a"
   },
   "author": "jjhelguero",
   "license": "ISC"
