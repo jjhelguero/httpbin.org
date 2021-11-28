@@ -8,7 +8,7 @@ it('PUT', () => {
         //Verifies correct status code
         expect(res.status).to.eq(200)
         expect(res.statusText).to.eq('OK')
-        expect(res.body.url).to.eq(Cypress.config('baseUrl') + '/post')
+        expect(res.body.url).to.eq(Cypress.config('baseUrl') + '/put')
 
         //Verifies response has a payload
         expect(res).to.be.a('object')
