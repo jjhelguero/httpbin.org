@@ -28,7 +28,12 @@ describe('HTTP Methods', () => {
   })
 
     it('DELETE', () => {
-      cy.request('DELETE','/delete')
+      cy.api(
+        {
+          method:'DELETE',
+          url:'/delete'
+        },
+        'DELETE Method')
         .then(res => {
             //Verifies correct status code
             expect(res.status).to.eq(200)
@@ -49,7 +54,12 @@ describe('HTTP Methods', () => {
     });
 
     it('GET', () => {
-      cy.request('GET','/get')
+      cy.api(
+        {
+          method:'GET',
+          url:'/get'
+        },
+        'GET method')
         .then(res => {
             //Verifies correct status code
             expect(res.status).to.eq(200)
@@ -70,7 +80,11 @@ describe('HTTP Methods', () => {
     });
 
     it('PATCH', () => {
-      cy.request('PATCH','/patch')
+      cy.api({
+        method:'PATCH',
+        url: '/patch'
+      },
+      'PATCH method')
         .then(res => {
             //Verifies correct status code
             expect(res.status).to.eq(200)
@@ -91,7 +105,12 @@ describe('HTTP Methods', () => {
     });
 
     it('POST', () => {
-      cy.request('POST','/post')
+      cy.api(
+        {
+          method:'POST',
+          url: '/post'
+        },
+        'POST method')
         .then(res => {
             //Verifies correct status code
             expect(res.status).to.eq(200)
@@ -111,12 +130,16 @@ describe('HTTP Methods', () => {
     });
 
     it('PUT', () => {
-      cy.request('POST','/post')
+      cy.api({
+        method: 'PUT',
+        url:'/put'
+      },
+      'PUT method')
         .then(res => {
             //Verifies correct status code
             expect(res.status).to.eq(200)
             expect(res.statusText).to.eq('OK')
-            expect(res.body.url).to.eq(Cypress.config('baseUrl') + '/post')
+            expect(res.body.url).to.eq(Cypress.config('baseUrl') + '/put')
 
             //Verifies response has a payload
             expect(res).to.be.a('object')

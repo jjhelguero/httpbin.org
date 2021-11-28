@@ -4,10 +4,12 @@
   "description": "",
   "main": "index.js",
   "devDependencies": {
-    "cypress": "^8.6.0"
+    "@bahmutov/cy-api": "^1.6.2",
+    "cypress": "^9.1.0"
   },
   "scripts": {
-    "cy:open": "cypress open"
+    "cy:open": "cypress open",
+    "cy:run": "cypress run"
   },
   "author": "jjhelguero",
   "license": "ISC"
