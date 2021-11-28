@@ -139,7 +139,7 @@ describe('HTTP Methods', () => {
             //Verifies correct status code
             expect(res.status).to.eq(200)
             expect(res.statusText).to.eq('OK')
-            expect(res.body.url).to.eq(Cypress.config('baseUrl') + '/put')
+            expect(res.body.url).to.eq(Cypress.config('baseUrl') + '/post')
 
             //Verifies response has a payload
             expect(res).to.be.a('object')
