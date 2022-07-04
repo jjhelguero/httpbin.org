@@ -4,7 +4,10 @@ orbs:
   # import Cypress orb by specifying an exact version x.y.z
   # or the latest version 1.x.x using "@1" syntax
   cypress: cypress-io/cypress@1
-workflows:
+nightly:
+  when:
+    and:
+      - equal: [<< pipeline.parameters.TRIGGER >>, "nightly-cron"]
   build:
     jobs:
       # "cypress" is the name of the imported orb
@@ -13,9 +16,12 @@ workflows:
       # TODO: set up tagged recorrded runs
       - cypress/install
       - cypress/run:
+          name: Nightly Runs Cypress
           requires:
             - cypress/install
           record: true
+          browser: chrome
+          no-workspace: true
           parallel: true
           parallelism: 2
           group: 2 machines
