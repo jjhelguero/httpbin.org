@@ -5,7 +5,7 @@
   "main": "index.js",
   "devDependencies": {
     "@bahmutov/cy-api": "^1.6.2",
-    "cypress": "^9.1.0"
+    "cypress": "9.7.0"
   },
   "scripts": {
     "cy:open": "cypress open",
