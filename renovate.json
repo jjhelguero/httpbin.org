@@ -6,7 +6,8 @@
       {
         "packagePatterns": ["*"],
         "excludePackagePatterns": [
-          "cypress",
+          "cypress-audit",
+          "cypress-repeat",
           "@bahmutov/cy-api"
         ],
         "enabled": false
