@@ -3,7 +3,8 @@ name: nightly
 on:
   schedule:
     # run all tests every 8 hours
-    - cron: "0 0,8,16 * * *"
+#     - cron: "0 0,8,16 * * *"
+    - cron: "0 0 * * *"
 
 jobs:
   trigger-circleci:
