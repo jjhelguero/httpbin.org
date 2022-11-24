@@ -1,29 +1,29 @@
-# to use orbs, must use version >= 2.1
 version: 2.1
-orbs:
-  # import Cypress orb by specifying an exact version x.y.z
-  # or the latest version 1.x.x using "@1" syntax
-  cypress: cypress-io/cypress@2.1.0
-nightly:
-  when:
-    and:
-      - equal: [<< pipeline.parameters.TRIGGER >>, "nightly-cron"]
-  build:
-    jobs:
-      # "cypress" is the name of the imported orb
-      # "run" is the name of the job defined in Cypress orb
-      # TODO: set up browser runs
-      # TODO: set up tagged recorrded runs
-      - cypress/install
-      - cypress/run:
-          name: Nightly Runs Cypress
-          requires:
-            - cypress/install
-          record: true
-          browser: chrome
-          no-workspace: true
-          parallel: true
-          parallelism: 2
-          group: 2 machines
-          store_artifacts: true
-          command: npm run cy:ci
+
+parameters:
+  TRIGGER:
+    type: string
+    default: ""
+
+jobs:
+  info:
+    machine:
+      image: ubuntu-2004:202104-01
+    steps:
+      - run:
+          name: print variables
+          command: |
+            echo "TRIGGER is << pipeline.parameters.TRIGGER >>"
+            echo "Variable MY_SECRET from the security context \"${MY_SECRET}\""
+
+workflows:
+  # this workflow only runs when triggered by the GH Action workflow "cron.yml"
+  cron-triggered:
+    when:
+      and:
+        - equal: [<< pipeline.parameters.TRIGGER >>, "nightly-cron"]
+    # jobs:
+    #   - info:
+    #       # inject the environment variables from these security contexts
+    #       context:
+    #         - demo-gh-action-triggers-circleci

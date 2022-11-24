@@ -1,9 +1,12 @@
 # triggers the actual test job on CircleCI
 name: nightly
 on:
+  push:
+    branches:
+      - master
   schedule:
     # run all tests every 8 hours
-#     - cron: "0 0,8,16 * * *"
+    #     - cron: "0 0,8,16 * * *"
     - cron: "0 0 * * *"
 
 jobs:
