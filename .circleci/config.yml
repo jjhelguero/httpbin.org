@@ -22,8 +22,8 @@ workflows:
     when:
       and:
         - equal: [<< pipeline.parameters.TRIGGER >>, "nightly-cron"]
-    # jobs:
-    #   - info:
-    #       # inject the environment variables from these security contexts
-    #       context:
-    #         - demo-gh-action-triggers-circleci
+    jobs:
+      - info:
+          # inject the environment variables from these security contexts
+          context:
+            - demo-gh-action-triggers-circleci
