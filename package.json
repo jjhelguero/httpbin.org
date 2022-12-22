@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "devDependencies": {
-    "@bahmutov/cy-api": "2.2.1",
+    "@bahmutov/cy-api": "2.2.3",
     "cypress": "10.4.0"
   },
   "scripts": {
